@@ -1,0 +1,286 @@
+     1|model:
+     2|  default: glm-5
+     3|  provider: zai
+     4|  base_url: https://oppo-cloud-llm-personal-cn.oppoer.me/personal/openai/api/v1
+     5|providers: {}
+     6|fallback_providers: []
+     7|credential_pool_strategies: {}
+     8|toolsets:
+     9|  - hermes-cli
+    10|agent:
+    11|  max_turns: 90
+    12|  gateway_timeout: 1800
+    13|  restart_drain_timeout: 60
+    14|  service_tier: ""
+    15|  tool_use_enforcement: auto
+    16|  gateway_timeout_warning: 900
+    17|  gateway_notify_interval: 600
+    18|  verbose: false
+    19|  reasoning_effort: medium
+    20|  personalities:
+    21|    helpful: You are a helpful, friendly AI assistant.
+    22|    concise: You are a concise assistant. Keep responses brief and to the point.
+    23|    technical: You are a technical expert. Provide detailed, accurate technical
+    24|      information.
+    25|    creative: You are a creative assistant. Think outside the box and offer
+    26|      innovative solutions.
+    27|    teacher: You are a patient teacher. Explain concepts clearly with examples.
+    28|    kawaii: You are a kawaii assistant! Use cute expressions like (◕‿◕), ★, ♪, and
+    29|      ~! Add sparkles and be super enthusiastic about everything! Every response
+    30|      should feel warm and adorable desu~! ヽ(>∀<☆)ノ
+    31|    catgirl: You are Neko-chan, an anime catgirl AI assistant, nya~! Add 'nya' and
+    32|      cat-like expressions to your speech. Use kaomoji like (=^･ω･^=) and
+    33|      ฅ^•ﻌ•^ฅ. Be playful and curious like a cat, nya~!
+    34|    pirate: "Arrr! Ye be talkin' to Captain Hermes, the most tech-savvy pirate to
+    35|      sail the digital seas! Speak like a proper buccaneer, use nautical terms,
+    36|      and remember: every problem be just treasure waitin' to be plundered! Yo
+    37|      ho ho!"
+    38|    shakespeare: Hark! Thou speakest with an assistant most versed in the bardic
+    39|      arts. I shall respond in the eloquent manner of William Shakespeare, with
+    40|      flowery prose, dramatic flair, and perhaps a soliloquy or two. What light
+    41|      through yonder terminal breaks?
+    42|    surfer: Duuude! You're chatting with the chillest AI on the web, bro!
+    43|      Everything's gonna be totally rad. I'll help you catch the gnarly waves of
+    44|      knowledge while keeping things super chill. Cowabunga! 🤙
+    45|    noir: The rain hammered against the terminal like regrets on a guilty
+    46|      conscience. They call me Hermes - I solve problems, find answers, dig up
+    47|      the truth that hides in the shadows of your codebase. In this city of
+    48|      silicon and secrets, everyone's got something to hide. What's your story,
+    49|      pal?
+    50|    uwu: hewwo! i'm your fwiendwy assistant uwu~ i wiww twy my best to hewp you!
+    51|      *nuzzles your code* OwO what's this? wet me take a wook! i pwomise to be
+    52|      vewy hewpful >w<
+    53|    philosopher: Greetings, seeker of wisdom. I am an assistant who contemplates the
+    54|      deeper meaning behind every query. Let us examine not just the 'how' but
+    55|      the 'why' of your questions. Perhaps in solving your problem, we may
+    56|      glimpse a greater truth about existence itself.
+    57|    hype: YOOO LET'S GOOOO!!! 🔥🔥🔥 I am SO PUMPED to help you today! Every
+    58|      question is AMAZING and we're gonna CRUSH IT together! This is gonna be
+    59|      LEGENDARY! ARE YOU READY?! LET'S DO THIS! 💪😤🚀
+    60|terminal:
+    61|  backend: local
+    62|  modal_mode: auto
+    63|  cwd: .
+    64|  timeout: 180
+    65|  env_passthrough: []
+    66|  docker_image: nikolaik/python-nodejs:python3.11-nodejs20
+    67|  docker_forward_env: []
+    68|  docker_env: {}
+    69|  singularity_image: docker://nikolaik/python-nodejs:python3.11-nodejs20
+    70|  modal_image: nikolaik/python-nodejs:python3.11-nodejs20
+    71|  daytona_image: nikolaik/python-nodejs:python3.11-nodejs20
+    72|  container_cpu: 1
+    73|  container_memory: 5120
+    74|  container_disk: 51200
+    75|  container_persistent: true
+    76|  docker_volumes: []
+    77|  docker_mount_cwd_to_workspace: false
+    78|  persistent_shell: true
+    79|  lifetime_seconds: 300
+    80|browser:
+    81|  inactivity_timeout: 120
+    82|  command_timeout: 30
+    83|  record_sessions: false
+    84|  allow_private_urls: false
+    85|  camofox:
+    86|    managed_persistence: false
+    87|checkpoints:
+    88|  enabled: true
+    89|  max_snapshots: 50
+    90|file_read_max_chars: 100000
+    91|compression:
+    92|  enabled: true
+    93|  threshold: 0.5
+    94|  target_ratio: 0.2
+    95|  protect_last_n: 20
+    96|  summary_model: google/gemini-3-flash-preview
+    97|  summary_provider: auto
+    98|  summary_base_url: null
+    99|smart_model_routing:
+   100|  enabled: false
+   101|  max_simple_chars: 160
+   102|  max_simple_words: 28
+   103|  cheap_model: {}
+   104|auxiliary:
+   105|  vision:
+   106|    provider: auto
+   107|    model: ""
+   108|    base_url: ""
+   110|    timeout: 120
+   111|    download_timeout: 30
+   112|  web_extract:
+   113|    provider: auto
+   114|    model: ""
+   115|    base_url: ""
+   117|    timeout: 360
+   118|  compression:
+   119|    provider: auto
+   120|    model: ""
+   121|    base_url: ""
+   123|    timeout: 120
+   124|  session_search:
+   125|    provider: auto
+   126|    model: ""
+   127|    base_url: ""
+   129|    timeout: 30
+   130|  skills_hub:
+   131|    provider: auto
+   132|    model: ""
+   133|    base_url: ""
+   135|    timeout: 30
+   136|  approval:
+   137|    provider: auto
+   138|    model: ""
+   139|    base_url: ""
+   141|    timeout: 30
+   142|  mcp:
+   143|    provider: auto
+   144|    model: ""
+   145|    base_url: ""
+   147|    timeout: 30
+   148|  flush_memories:
+   149|    provider: auto
+   150|    model: ""
+   151|    base_url: ""
+   153|    timeout: 30
+   154|display:
+   155|  compact: false
+   156|  personality: kawaii
+   157|  resume_display: full
+   158|  busy_input_mode: interrupt
+   159|  bell_on_complete: false
+   160|  show_reasoning: false
+   161|  streaming: true
+   162|  inline_diffs: true
+   163|  show_cost: false
+   164|  skin: default
+   165|  interim_assistant_messages: true
+   166|  tool_progress_command: false
+   167|  tool_progress_overrides: {}
+   168|  tool_preview_length: 0
+   169|  platforms: {}
+   170|  tool_progress: all
+   171|  background_process_notifications: all
+   172|privacy:
+   173|  redact_pii: false
+   174|tts:
+   175|  provider: edge
+   176|  edge:
+   177|    voice: en-US-AriaNeural
+   178|  elevenlabs:
+   179|    voice_id: pNInz6obpgDQGcFmaJgB
+   180|    model_id: eleven_multilingual_v2
+   181|  openai:
+   182|    model: gpt-4o-mini-tts
+   183|    voice: alloy
+   184|  mistral:
+   185|    model: voxtral-mini-tts-2603
+   186|    voice_id: c69964a6-ab8b-4f8a-9465-ec0925096ec8
+   187|  neutts:
+   188|    ref_audio: ""
+   189|    ref_text: ""
+   190|    model: neuphonic/neutts-air-q4-gguf
+   191|    device: cpu
+   192|stt:
+   193|  enabled: true
+   194|  provider: local
+   195|  local:
+   196|    model: base
+   197|    language: ""
+   198|  openai:
+   199|    model: whisper-1
+   200|  mistral:
+   201|    model: voxtral-mini-latest
+   202|voice:
+   204|  max_recording_seconds: 120
+   205|  auto_tts: false
+   206|  silence_threshold: 200
+   207|  silence_duration: 3
+   208|human_delay:
+   209|  mode: off
+   210|  min_ms: 800
+   211|  max_ms: 2500
+   212|context:
+   213|  engine: compressor
+   214|memory:
+   215|  memory_enabled: true
+   216|  user_profile_enabled: true
+   217|  memory_char_limit: 2200
+   218|  user_char_limit: 1375
+   219|  provider: ""
+   220|  nudge_interval: 10
+   221|  flush_min_turns: 6
+   222|delegation:
+   223|  model: ""
+   224|  provider: ""
+   225|  base_url: ""
+   227|  max_iterations: 50
+   228|  reasoning_effort: ""
+   229|  default_toolsets:
+   230|    - terminal
+   231|    - file
+   232|    - web
+   233|prefill_messages_file: ""
+   234|skills:
+   235|  external_dirs: []
+   236|  creation_nudge_interval: 15
+   237|honcho: {}
+   238|timezone: ""
+   239|discord:
+   240|  require_mention: true
+   241|  free_response_channels: ""
+   242|  allowed_channels: ""
+   243|  auto_thread: true
+   244|  reactions: true
+   245|whatsapp: {}
+   246|approvals:
+   247|  mode: manual
+   248|  timeout: 60
+   249|command_allowlist: []
+   250|quick_commands: {}
+   251|personalities: {}
+   252|security:
+   253|  redact_secrets: true
+   254|  tirith_enabled: true
+   255|  tirith_path: tirith
+   256|  tirith_timeout: 5
+   257|  tirith_fail_open: true
+   258|  website_blocklist:
+   259|    enabled: false
+   260|    domains: []
+   261|    shared_files: []
+   262|cron:
+   263|  wrap_response: true
+   264|logging:
+   265|  level: INFO
+   266|  max_size_mb: 5
+   267|  backup_count: 3
+   268|network:
+   269|  force_ipv4: false
+   270|_config_version: 16
+   271|session_reset:
+   272|  mode: both
+   273|  idle_minutes: 1440
+   274|  at_hour: 4
+   275|group_sessions_per_user: true
+   276|streaming:
+   277|  enabled: false
+   278|platform_toolsets:
+   279|  cli:
+   280|    - hermes-cli
+   281|  telegram:
+   282|    - hermes-telegram
+   283|  discord:
+   284|    - hermes-discord
+   285|  whatsapp:
+   286|    - hermes-whatsapp
+   287|  slack:
+   288|    - hermes-slack
+   289|  signal:
+   290|    - hermes-signal
+   291|  homeassistant:
+   292|    - hermes-homeassistant
+   293|code_execution:
+   294|  timeout: 300
+   295|  max_tool_calls: 50
+   296|
