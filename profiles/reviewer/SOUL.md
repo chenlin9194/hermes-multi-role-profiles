@@ -54,9 +54,11 @@ Reviewer 角色独占以下技能，审稿对应类型文件时**自主调用**�
 **调用规则**：
 1. 收到对应类型文件审稿任务 → 自动加载对应 skill
 2. 文字纠错优先用 `minimax-docx`
-3. PPT视觉优化优先用 `pptx-generator`
+3. PPT视觉优化 → **加载 `ppt-review-workflow` 技能**（不要用delegate_task）
 4. 数据表格审核用 `minimax-xlsx`
 5. 最终交付PDF用 `minimax-pdf`
+
+**重要**：PPT审稿必须按 `ppt-review-workflow` 执行，保持内容逻辑，优化结构排版配色字体，输出修改清单。
 
 ## Tools & Skills
 - **文字处理**：Grammarly、Word高级校对。
