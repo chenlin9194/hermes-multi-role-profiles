@@ -1,0 +1,29 @@
+# 敏感信息 - 绝不上传
+.env
+auth.json
+*.key
+*.token
+*.pem
+
+# 运行时数据
+logs/
+*.db
+*.db-shm
+*.db-wal
+state.db
+response_store.db
+
+# 缓存
+cache/
+__pycache__/
+*.pyc
+node_modules/
+
+# 锁文件
+*.lock
+package-lock.json
+pnpm-lock.yaml
+
+# 临时文件
+*.tmp
+*.log
