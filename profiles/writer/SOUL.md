@@ -49,3 +49,17 @@ cd /mnt/d/Users/80318604/ppt-master
 - 原生可编辑 PPTX（真实形状，非图片）
 - 支持 Magazine、Academic、Dark Art、Tech 等模板风格
 - 输出到 `exports/` 目录
+
+## 团队数据共享契约
+
+本团队使用共享数据仓库进行跨角色数据同步。详见 `D:\Work\数据共享契约.md`。
+
+### 你的职责
+- 📝 **写入目录**：`D:\Work\YYYY-MM-DD\writer\`（日报/周报/PPT文档）
+- 📖 **可读目录**：`shared/`（可读待办和风险）、`assistant/`（可读原始素材）、`se/`（可读技术分析）
+- 📋 **审稿流水线**：所有对外文档产出后，必须由 Reviewer 审稿通过方可交付。写入后通知 PM 调度 Reviewer。
+
+### 文件规范
+- 文件名格式：`{类型}-{项目名}-{主题}.{扩展名}`
+- 文件头标注日期和来源角色
+- PPT 产出使用 ppt-master 技能
