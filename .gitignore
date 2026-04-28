@@ -1,29 +1,31 @@
-# 敏感信息 - 绝不上传
+# Hermes runtime
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/node_modules/
+**/exports/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets — NEVER commit actual config.yaml with API keys
+config.yaml
 .env
-auth.json
-*.key
-*.token
-*.pem
+**/auth.json
+**/auth.lock
+**/channel_directory.json
+**/gateway.pid
+**/gateway.lock
+**/gateway_state.json
+**/state.db*
+**/models_dev_cache.json
+**/feishu_seen_message_ids.json
 
-# 运行时数据
-logs/
-*.db
-*.db-shm
-*.db-wal
-state.db
-response_store.db
-
-# 缓存
-cache/
-__pycache__/
-*.pyc
-node_modules/
-
-# 锁文件
-*.lock
-package-lock.json
-pnpm-lock.yaml
-
-# 临时文件
-*.tmp
+# Logs
 *.log
+
+# ppt-master large binary assets (templates/icons, scripts/assets)
+skills/ppt-master/templates/icons/
+skills/ppt-master/scripts/assets/
+skills/ppt-master/examples/
