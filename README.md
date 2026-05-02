@@ -50,6 +50,24 @@ PM 角色可通过 `delegate_task` 将任务分发给其他角色。
 2. **按需调度**：PM 根据任务性质自动路由
 3. **人格隔离**：每个角色有独立的 `SOUL.md` 定义
 
+## Gateway Watchdog
+
+内置 5 角色 Gateway 自动保活系统（详见 [`watchdog/`](watchdog/)）：
+
+- **独立监控**：PM / SE / Assistant / Writer / Reviewer 各进程独立检查
+- **自动重连**：进程死亡或 WebSocket 断连时自动 `hermes --replace`
+- **飞书告警**：断开/恢复通过 Webhook 卡片通知
+- **零 Token**：纯本地 L1（PID）+ L2（日志）检查，不调 LLM
+- **双重保活**：内置 30s 守护进程 + cron 分钟级兜底
+
+```bash
+# 部署到新机器后执行：
+cp watchdog/config.example.json ~/.hermes/watchdog/config.json
+# 编辑 config.json 填入飞书 Webhook URL
+python3 ~/.hermes/watchdog/watchdog.py &
+crontab - <<< '* * * * * python3 ~/.hermes/watchdog/cron_check.py'
+```
+
 ## 安装
 
 将文件复制到 `~/.hermes/` 目录即可：

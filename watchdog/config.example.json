@@ -1,0 +1,19 @@
+{
+  "webhook_url": "YOUR_FEISHU_WEBHOOK_URL_HERE",
+  "poll_interval": 30,
+  "gateways": {
+    "PM":         {"profile": null,      "pid_file": "~/.hermes/gateway.pid"},
+    "Assistant":  {"profile": "assistant", "pid_file": "~/.hermes/profiles/assistant/gateway.pid"},
+    "SE":         {"profile": "se",        "pid_file": "~/.hermes/profiles/se/gateway.pid"},
+    "Writer":     {"profile": "writer",    "pid_file": "~/.hermes/profiles/writer/gateway.pid"},
+    "Reviewer":   {"profile": "reviewer",  "pid_file": "~/.hermes/profiles/reviewer/gateway.pid"}
+  },
+  "max_retries": 3,
+  "backoff_seconds": [1, 5, 30],
+  "cooldown_seconds": 60,
+  "alert_cooldown_seconds": 300,
+  "heartbeat_file": "~/.hermes/watchdog/heartbeat",
+  "pid_file": "~/.hermes/watchdog/watcher.pid",
+  "state_file": "~/.hermes/watchdog/state.json",
+  "log_file": "~/.hermes/watchdog/watchdog.log"
+}
