@@ -1,8 +1,12 @@
 {
-  "webhook_url": "YOUR_FEISHU_WEBHOOK_URL_HERE",
+  "bot": {
+    "app_id": "<YOUR_APP_ID>",
+    "app_secret": "<YOUR_APP_SECRET>",
+    "user_open_id": "<YOUR_USER_OPEN_ID>"
+  },
   "poll_interval": 30,
   "gateways": {
-    "PM":         {"profile": null,      "pid_file": "~/.hermes/gateway.pid"},
+    "PM":         {"profile": null,      "pid_file": "~/.hermes/gateway.pid",      "log_dir": "~/.hermes/logs"},
     "Assistant":  {"profile": "assistant", "pid_file": "~/.hermes/profiles/assistant/gateway.pid"},
     "SE":         {"profile": "se",        "pid_file": "~/.hermes/profiles/se/gateway.pid"},
     "Writer":     {"profile": "writer",    "pid_file": "~/.hermes/profiles/writer/gateway.pid"},
@@ -15,5 +19,6 @@
   "heartbeat_file": "~/.hermes/watchdog/heartbeat",
   "pid_file": "~/.hermes/watchdog/watcher.pid",
   "state_file": "~/.hermes/watchdog/state.json",
-  "log_file": "~/.hermes/watchdog/watchdog.log"
+  "log_file": "~/.hermes/watchdog/watchdog.log",
+  "message_stale_threshold": 3600
 }

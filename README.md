@@ -63,7 +63,7 @@ PM 角色可通过 `delegate_task` 将任务分发给其他角色。
 ```bash
 # 部署到新机器后执行：
 cp watchdog/config.example.json ~/.hermes/watchdog/config.json
-# 编辑 config.json 填入飞书 Webhook URL
+# 编辑 config.json 填入飞书 Bot 凭据 (app_id/app_secret/user_open_id)
 python3 ~/.hermes/watchdog/watchdog.py &
 crontab - <<< '* * * * * python3 ~/.hermes/watchdog/cron_check.py'
 ```

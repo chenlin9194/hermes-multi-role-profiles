@@ -1,1 +1,39 @@
-File unchanged since last read. The content from the earlier read_file result in this conversation is still current — refer to that instead of re-reading.
+#!/bin/bash
+
+# Hermes 多角色切换脚本
+# 用法: hermes-profile [角色名称]
+
+PROFILE_DIR="$HOME/.hermes/profiles"
+CURRENT_SOUL="$HOME/.hermes/SOUL.md"
+
+# 检查参数
+if [ $# -eq 0 ]; then
+    echo "可用角色:"
+    echo "  pm    - 项目经理 (默认)"
+    echo "  se    - 技术专家"
+    echo "  assistant - 助理"
+    echo "  writer - 写手"
+    echo ""
+    echo "当前角色: $(basename $(readlink -f $CURRENT_SOUL) 2>/dev/null || echo 'default')"
+    exit 0
+fi
+
+ROLE=$1
+
+# 检查角色是否存在
+if [ ! -d "$PROFILE_DIR/$ROLE" ]; then
+    echo "错误: 角色 '$ROLE' 不存在"
+    echo "可用角色: pm, se, assistant, writer"
+    exit 1
+fi
+
+# 切换到指定角色
+if [ "$ROLE" = "pm" ]; then
+    # PM 是默认角色，使用根目录的 SOUL.md
+    cp "$PROFILE_DIR/pm/SOUL.md" "$CURRENT_SOUL"
+else
+    cp "$PROFILE_DIR/$ROLE/SOUL.md" "$CURRENT_SOUL"
+fi
+
+echo "✅ 已切换到 $ROLE 角色"
+echo "📍 当前 SOUL.md: $CURRENT_SOUL"
